@@ -1,5 +1,6 @@
 package ie.atu.lab2cicddp;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -14,15 +15,15 @@ public class ProductController {
     {
         return "Hello World";
     }
-    @GetMapping("/getproduct")
-    public Product getProduct()
+    @GetMapping("/getproducts")
+    public List<Product> getProducts()
     {
         Product myProduct = new Product("Tv", 499);
-        return myProduct;
+        return myList;
     }
 
     @PostMapping("/addProduct")
-    public Product addProduct(@RequestBody Product myProduct)
+    public Product addProduct(@Valid @RequestBody Product myProduct)
     {
         myList.add(myProduct);
         return myProduct;
